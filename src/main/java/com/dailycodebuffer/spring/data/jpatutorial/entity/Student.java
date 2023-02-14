@@ -1,4 +1,4 @@
-package com.dailycodebuffer.spring.data.jpatutorial.Entity;
+package com.dailycodebuffer.spring.data.jpatutorial.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -41,6 +41,4 @@ public class Student {
     private String guardianName;
     private String guardianEmail;
     private String guardianMobile;
-
-    // TODO: 5:00:00 Understanding Repositories and Methods
 }

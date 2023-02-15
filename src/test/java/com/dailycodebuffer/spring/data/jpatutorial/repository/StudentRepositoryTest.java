@@ -1,5 +1,6 @@
 package com.dailycodebuffer.spring.data.jpatutorial.repository;
 
+import com.dailycodebuffer.spring.data.jpatutorial.entity.Guardian;
 import com.dailycodebuffer.spring.data.jpatutorial.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,28 @@ class StudentRepositoryTest {
                 .firstName("John")
                 .lastName("Doe")
                 .emailId("shabbir@gmail.com")
-                .guardianName("Nikhil")
-                .guardianEmail("nikhil@gmail.com")
-                .guardianMobile("1234567890")
+                //.guardianName("Nikhil")
+                //.guardianEmail("nikhil@gmail.com")
+                //.guardianMobile("1234567890")
+                .build();
+
+        studentRepository.save(student);
+    }
+
+    @Test
+    public void saveStudentWithGuardian() {
+
+        Guardian guardian = Guardian.builder()
+                .name("Nikhil")
+                .email("nikhil@gmail.com")
+                .mobile("1234567890")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("asd")
+                .emailId("123@gmail.com")
+                .lastName("asd123")
+                .guardian(guardian)
                 .build();
 
         studentRepository.save(student);
@@ -36,4 +56,4 @@ class StudentRepositoryTest {
     }
 }
     
-    // TODO: 5:11:00 @Embedded and @Embeddable
+    // TODO: 5:20:00 JPA Repository Methods

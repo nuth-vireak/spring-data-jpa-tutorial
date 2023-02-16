@@ -79,6 +79,18 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findByGuardianName("Nikhil");
         System.out.println("studentList = " + students);
     }
+
+    @Test
+    public void printGetStudentByEmailAddress() {
+        Student student = studentRepository.getStudentByEmailAddress("123@gmail.com");
+        System.out.println("Student Email: " + student);
+    }
+
+    @Test
+    public void printGetStudentFirstNameByEmailAddress() {
+        String firstName = studentRepository.getStudentFirstNameByEmailAddress("123@gmail.com");
+        System.out.println("Student FirstName: " + firstName);
+    }
 }
     
     // TODO: 5:30:00 JPA @Query Annotation

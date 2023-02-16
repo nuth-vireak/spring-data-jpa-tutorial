@@ -2,6 +2,7 @@ package com.dailycodebuffer.spring.data.jpatutorial.repository;
 
 import com.dailycodebuffer.spring.data.jpatutorial.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +14,14 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByFirstNameContaining(String name);
     List<Student> findByLastNameNotNull();
     List<Student> findByGuardianName(String guardianName);
-    List<Student> findByLastNameAndFirstName(String firstName, String lastName);
+    Student findByLastNameAndFirstName(String firstName, String lastName);
 
-    // TODO: 5:30:00 JPA @Query Annotation
+    // JPQL
+    @Query("SELECT s FROM Student s WHERE s.emailId = ?1")
+    Student getStudentByEmailAddress(String emailId);
+
+    @Query("SELECT s.firstName FROM Student s WHERE s.emailId = ?1")
+    String getStudentFirstNameByEmailAddress(String emailId);
+
+    // TODO: 5:36:00 Native Queries Example
 }

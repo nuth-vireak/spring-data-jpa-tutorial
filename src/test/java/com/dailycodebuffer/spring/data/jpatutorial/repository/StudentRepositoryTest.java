@@ -54,6 +54,31 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findAll();
         System.out.println("studentList = " + students);
     }
+
+    @Test
+    public void printStudentByFirstName() {
+        List<Student> students = studentRepository.findByFirstName("John");
+        System.out.println("studentList = " + students);
+    }
+
+    @Test
+    public void printStudentByFirstNameContaining() {
+        List<Student> students = studentRepository.findByFirstNameContaining("J");
+        System.out.println("studentList = " + students);
+    }
+
+
+    @Test
+    public void printStudentByLastNameNotNull() {
+        List<Student> students = studentRepository.findByLastNameNotNull();
+        System.out.println("studentList = " + students);
+    }
+
+    @Test
+    public void printStudentByGuardianName() {
+        List<Student> students = studentRepository.findByGuardianName("Nikhil");
+        System.out.println("studentList = " + students);
+    }
 }
     
-    // TODO: 5:20:00 JPA Repository Methods
+    // TODO: 5:30:00 JPA @Query Annotation

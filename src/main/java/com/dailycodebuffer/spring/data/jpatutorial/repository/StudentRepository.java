@@ -3,6 +3,7 @@ package com.dailycodebuffer.spring.data.jpatutorial.repository;
 import com.dailycodebuffer.spring.data.jpatutorial.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,5 +31,12 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     )
     Student getStudentByEmailAddressNative(String emailId);
 
-    // TODO: 5:40:00 Query Named Params
+    //Native Named Param
+    @Query(
+            value = "SELECT * FROM tbl_student s WHERE s.email_address = :emailId",
+            nativeQuery = true
+    )
+    Student getStudentByEmailAddressNativeNameParam(@Param("emailId") String emailId);
+
+    // TODO: 5:42:00 @Transactional & @Modifying Annotation
 }

@@ -5,6 +5,7 @@ import com.dailycodebuffer.spring.data.jpatutorial.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -67,7 +68,6 @@ class StudentRepositoryTest {
         System.out.println("studentList = " + students);
     }
 
-
     @Test
     public void printStudentByLastNameNotNull() {
         List<Student> students = studentRepository.findByLastNameNotNull();
@@ -91,6 +91,10 @@ class StudentRepositoryTest {
         String firstName = studentRepository.getStudentFirstNameByEmailAddress("123@gmail.com");
         System.out.println("Student FirstName: " + firstName);
     }
+
+    @Test
+    public void printGetStudentByEmailAddressNative() {
+        Student student = studentRepository.getStudentByEmailAddressNative("1s23@gmail.com");
+        System.out.println("Student Email Address Native: " + student);
+    }
 }
-    
-    // TODO: 5:30:00 JPA @Query Annotation

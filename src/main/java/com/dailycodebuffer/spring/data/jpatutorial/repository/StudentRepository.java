@@ -2,9 +2,11 @@ package com.dailycodebuffer.spring.data.jpatutorial.repository;
 
 import com.dailycodebuffer.spring.data.jpatutorial.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,5 +40,13 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     )
     Student getStudentByEmailAddressNativeNameParam(@Param("emailId") String emailId);
 
-    // TODO: 5:42:00 @Transactional & @Modifying Annotation
+    @Modifying
+    @Transactional
+    @Query(
+            value = "UPDATE tbl_student s SET s.first_name = :firstName WHERE s.email_address = :emailId",
+            nativeQuery = true
+    )
+    int updateStudentFirstNameByEmailId(@Param("firstName") String firstName, @Param("emailId") String emailId);
+
+    // TODO: 5:48:00 JPA One to One Relationship
 }

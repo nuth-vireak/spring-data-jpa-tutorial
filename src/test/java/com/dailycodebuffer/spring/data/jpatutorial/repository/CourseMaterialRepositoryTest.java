@@ -41,5 +41,4 @@ class CourseMaterialRepositoryTest {
         System.out.println("courseMaterials = " + courseMaterials);
     }
 
-    // TODO - 6:05:53 Fetch Type Eager and Lazy
 }

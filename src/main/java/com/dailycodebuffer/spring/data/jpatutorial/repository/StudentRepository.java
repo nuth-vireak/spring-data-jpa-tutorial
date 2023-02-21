@@ -48,6 +48,4 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     )
     int updateStudentFirstNameByEmailId(@Param("firstName") String firstName, @Param("emailId") String emailId);
 
-
-    // TODO: 5:48:00 JPA One to One Relationship
 }

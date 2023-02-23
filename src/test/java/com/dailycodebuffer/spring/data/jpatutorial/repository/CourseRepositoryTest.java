@@ -21,5 +21,3 @@ class CourseRepositoryTest {
         System.out.println("courses = " + courses);
     }
 }
-
-// TODO - 6:05:53 Uni & Bi Directional relationship

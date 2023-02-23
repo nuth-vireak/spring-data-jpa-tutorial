@@ -38,5 +38,3 @@ class TeacherRepositoryTest {
         teacherRepository.save(teacher);
     }
 }
-
-// TODO - 6:27:00 Paging and Sorting

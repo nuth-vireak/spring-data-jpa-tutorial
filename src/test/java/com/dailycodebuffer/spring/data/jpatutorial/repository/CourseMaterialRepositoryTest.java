@@ -21,7 +21,7 @@ class CourseMaterialRepositoryTest {
 
         Course course = Course.builder()
                 .title(".net")
-                .credit(6)
+                .credit(2)
                 .build();
 
         CourseMaterial courseMaterial =

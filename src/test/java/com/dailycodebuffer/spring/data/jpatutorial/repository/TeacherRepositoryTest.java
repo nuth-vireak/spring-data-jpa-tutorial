@@ -32,11 +32,11 @@ class TeacherRepositoryTest {
         Teacher teacher = Teacher.builder()
                 .firstName("chea")
                 .lastName("kdoy")
-                .courses(List.of(courseJava, courseSpring))
+                //.courses(List.of(courseJava, courseSpring))
                 .build();
 
         teacherRepository.save(teacher);
     }
 }
 
-// TODO - 6:18:00 Save Teacher with Courses
+// TODO - 6:27:00 Paging and Sorting

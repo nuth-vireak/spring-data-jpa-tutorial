@@ -1,16 +1,16 @@
 package com.dailycodebuffer.spring.data.jpatutorial.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
+@ToString(exclude = {"courseMaterial", "teacher"})
 public class Course {
 
     @Id
@@ -31,4 +31,14 @@ public class Course {
             mappedBy = "course"
     )
     private CourseMaterial courseMaterial;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL
+            //fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }
